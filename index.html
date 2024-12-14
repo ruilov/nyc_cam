@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcam Grid</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
+        }
+        .grid-item {
+            text-align: center;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+        }
+        .grid-item img {
+            max-width: 100%;
+            border-radius: 4px;
+        }
+        .grid-item label {
+            display: block;
+            margin-top: 8px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+    </style>
+    <script>
+        function refreshImages() {
+            const images = document.querySelectorAll('.grid-item img');
+            images.forEach(img => {
+                const currentSrc = img.src;
+                img.src = currentSrc.split('?')[0] + '?t=' + new Date().getTime();
+            });
+        }
+        setInterval(refreshImages, 3000);
+    </script>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item">
+            <img src="https://webcams.nyctmc.org/api/cameras/f8e7c70d-bdcb-4394-b55c-d9bcef891fba/image" alt="42nd and 11th (South)">
+            <label>42nd and 11th (South)</label>
+        </div>
+        <div class="grid-item">
+            <img src="https://webcams.nyctmc.org/api/cameras/9bd74b87-32d1-4767-8081-86a2e83f28f2/image" alt="42nd and West Side (South)">
+            <label>42nd and West Side (South)</label>
+        </div>
+        <div class="grid-item">
+            <img src="https://webcams.nyctmc.org/api/cameras/3095997f-dd41-4e71-a810-9290576c17a6/image" alt="57th">
+            <label>57th</label>
+        </div>
+        <div class="grid-item">
+            <img src="https://webcams.nyctmc.org/api/cameras/e438c68c-c1e4-4fc1-9d1e-28cab8acb42a/image" alt="70th">
+            <label>70th</label>
+        </div>
+        <div class="grid-item">
+            <img src="https://webcams.nyctmc.org/api/cameras/28107d1c-08da-4cd3-9777-09471ca30225/image" alt="96th">
+            <label>96th</label>
+        </div>
+        <div class="grid-item">
+            <img src="https://webcams.nyctmc.org/api/cameras/bb39deae-1c17-429a-a493-e7144408d011/image" alt="99th">
+            <label>99th</label>
+        </div>
+        <div class="grid-item">
+            <img src="https://webcams.nyctmc.org/api/cameras/ca545979-d0c1-4735-88d6-61b6311bb6bc/image" alt="125th">
+            <label>125th</label>
+        </div>
+        <div class="grid-item">
+            <img src="https://webcams.nyctmc.org/api/cameras/5531396b-856d-429b-8bde-a845ef87aead/image" alt="158th">
+            <label>158th</label>
+        </div>
+        <div class="grid-item">
+            <img src="https://webcams.nyctmc.org/api/cameras/ffae5a99-c403-41aa-9985-0633aee4aeff/image" alt="165th">
+            <label>165th</label>
+        </div>
+    </div>
+</body>
+</html>
